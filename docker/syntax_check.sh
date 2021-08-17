@@ -18,7 +18,7 @@ C_FILES=$(find . \
 
 ulimit -s 65536
 $CLANG_FORMAT_BIN --version
-errors=$($CLANG_FORMAT_BIN --verbose -style=file -n --Werror --ferror-limit=0 $C_FILES |& tee /dev/tty | sed '/^Formatting/d')
+errors=$($CLANG_FORMAT_BIN --verbose -style=file -n --Werror --ferror-limit=0 $C_FILES |& tee /dev/stderr | sed '/^Formatting/d')
 
 if [[ -z "$errors" ]]; then
     echo "Code looks fine for me!"
