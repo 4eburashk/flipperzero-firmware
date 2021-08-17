@@ -135,11 +135,13 @@ void AccessorApp::notify_success() {
 
 /*************************** TEXT STORE *****************************/
 
-char* AccessorApp::get_text_store() {
+char* AccessorApp::get_text_store()
+{
     return text_store;
 }
 
-uint8_t AccessorApp::get_text_store_size() {
+uint8_t AccessorApp::get_text_store_size()
+{
     return text_store_size;
 }
 

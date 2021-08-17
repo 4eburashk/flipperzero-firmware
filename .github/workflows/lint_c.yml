@@ -43,7 +43,11 @@ jobs:
         uses: ./.github/actions/docker
 
       - name: 'Check syntax'
+        id: syntax_check
         uses: ./.github/actions/docker
-        continue-on-error: false
         with:
           run: /syntax_check.sh
+
+      - name: Test syntax errors
+        if: ${{ steps.syntax_check.outputs.errors }}
+        run: echo "Please fix following syntax errors ${{ steps.syntax_check.outputs.errors }}"
